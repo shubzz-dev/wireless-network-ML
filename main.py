@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 # 1. LOAD DATASET
 file_path = "DATASET/channel_quality_dataset.csv"
 df = pd.read_csv(file_path)
-print("✅ Dataset loaded successfully!\n")
+print(" Dataset loaded successfully!\n")
 print(df.head())
 
 # 2. HANDLE MISSING VALUES & CLEANING
@@ -22,7 +22,7 @@ le = LabelEncoder()
 df["Channel_Quality"] = le.fit_transform(df["Channel_Quality"].astype(str))
 
 # 3. FEATURE AND TARGET SELECTION
-X = df[["RSSI", "SNR", "BER", "Distance", "Interference"]]  # ✅ removed Channel_Quality from X
+X = df[["RSSI", "SNR", "BER", "Distance", "Interference"]]  # removed Channel_Quality from X
 y = df["Channel_Quality"]
 
 # 4. SPLIT DATASET
@@ -39,7 +39,7 @@ y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-print("\n✅ Model trained successfully!")
+print("\n Model trained successfully!")
 print("Mean Squared Error:", mse)
 print("R² Score:", r2)
 
